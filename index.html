@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Peter Buchardt – Game Designer & Leader</title>
-  <meta name="description" content="Game designer with 18+ years experience in systems design, prototyping, and leadership. From LEGO interactive play to shipped titles like LIMBO, INSIDE, and For Honor."/>
+  <meta name="description" content="Game designer with 18+ years in systems design, prototyping, and leadership. From LEGO interactive play to titles like LIMBO, INSIDE, and For Honor."/>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,17 @@
       --accent: #4a9eff;
       --card: #1a1a1a;
       --border: #333;
+      --scroll-btn: #555;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
     }
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -29,64 +37,65 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15,15,15,0.9);
-      backdrop-filter: blur(10px);
-      z-index: 100;
+      background: rgba(15,15,15,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
       border-bottom: 1px solid var(--border);
     }
     nav {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--accent);
     }
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      margin-left: 2rem;
+      margin-left: 2.2rem;
+      font-size: 1rem;
       transition: color 0.3s;
     }
     .nav-links a:hover {
       color: var(--accent);
     }
     main {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 8rem 2rem 4rem;
+      padding: 9rem 2rem 6rem;
     }
     section {
-      margin-bottom: 6rem;
+      margin-bottom: 8rem;
     }
     h1, h2 {
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
     .hero {
       text-align: center;
-      padding: 4rem 0 6rem;
+      padding: 5rem 0 7rem;
     }
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 3.8rem;
+      margin-bottom: 1.2rem;
     }
     .hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: #aaa;
+      font-size: 1.35rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      color: #bbb;
     }
     .btn {
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2.2rem;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 500;
@@ -97,50 +106,101 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.2rem;
+      margin-top: 3rem;
     }
     .project-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
     .project-card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
     }
     .project-info {
-      padding: 1.5rem;
+      padding: 1.8rem;
     }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2.5rem;
     }
     .skill-category {
       background: var(--card);
-      padding: 1.5rem;
-      border-radius: 8px;
+      padding: 1.8rem;
+      border-radius: 10px;
       border: 1px solid var(--border);
+    }
+    .skill-category ul {
+      list-style: none;
+    }
+    .skill-category li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+    #about p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+    #to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--scroll-btn);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s, visibility 0.4s, background 0.3s;
+      z-index: 999;
+    }
+    #to-top.visible {
+      opacity: 0.8;
+      visibility: visible;
+    }
+    #to-top:hover {
+      background: var(--accent);
+      opacity: 1;
     }
     footer {
       text-align: center;
-      padding: 3rem 1rem;
-      background: #0a0a0a;
+      padding: 4rem 1rem 2rem;
+      font-size: 0.95rem;
+      color: #666;
       border-top: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: #777;
     }
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      nav { flex-direction: column; gap: 1rem; }
-      .nav-links a { margin: 0 1rem; }
+      .hero h1 { font-size: 2.8rem; }
+      nav { flex-direction: column; gap: 1.2rem; padding: 1rem; }
+      .nav-links a { margin: 0 1.2rem; font-size: 0.95rem; }
+      main { padding-top: 7rem; }
     }
   </style>
 </head>
@@ -153,7 +213,7 @@
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#about">About & Contact</a>
+        <a href="#about">About</a>
       </div>
     </nav>
   </header>
@@ -161,27 +221,112 @@
   <main>
     <section id="home" class="hero">
       <h1>Crafting Meaningful Play Systems</h1>
-      <p>Game designer and leader with 18+ years shipping titles across indie, AAA, and interactive play. Deep experience in holistic game systems, player psychology, rapid prototyping, and mentoring teams. Currently transitioning from The LEGO Group — open to principal design roles in innovative, community-focused studios.</p>
-      <a href="#projects" class="btn">View Projects</a>
+      <p>Game designer and leader with 18+ years shipping titles across indie, AAA, and interactive play. Expertise in holistic game systems, player psychology, rapid prototyping in ambiguous environments, and mentoring teams. Transitioning from The LEGO Group — open to principal roles in community-driven, innovative studios.</p>
+      <a href="#projects" class="btn">Explore Work</a>
     </section>
 
     <section id="projects">
       <h2>Selected Work</h2>
-      <p>Highlights focusing on systems design, prototyping leadership, and player impact.</p>
+      <p>Key projects highlighting systems design, prototyping leadership, and player-focused impact.</p>
       
       <div class="projects-grid">
         <div class="project-card">
-          <img src="images/lego-super-mario-hero.jpg" alt="LEGO Super Mario interactive play">
+          <img src="images/lego-super-mario-hero.jpg" alt="LEGO Super Mario interactive integration">
           <div class="project-info">
             <h3>LEGO Super Mario & Smart Play</h3>
-            <p>Led prototyping and product ownership for digital-physical hybrid systems, integrating sensors, apps, and real-time feedback for adaptive play experiences.</p>
-            <p><strong>Your role & impact:</strong> [YOUR EXPERIENCE FROM LEGO SUPER MARIO HERE – e.g., backlog prioritization, accelerated cycles, cross-functional alignment]</p>
+            <p>Led prototyping and product ownership for hybrid digital-physical systems with sensors, apps, and real-time feedback.</p>
+            <p><strong>Role & impact:</strong> [YOUR EXPERIENCE FROM LEGO SUPER MARIO HERE – e.g., accelerated delivery cycles, cross-functional alignment, adaptive play validation]</p>
           </div>
         </div>
 
         <div class="project-card">
-          <img src="images/for-honor-arcade.jpg" alt="For Honor Arcade Mode gameplay">
+          <img src="images/for-honor-arcade.jpg" alt="For Honor Arcade Mode systems">
           <div class="project-info">
             <h3>For Honor Arcade Mode</h3>
-            <p>Designed and shipped full Arcade Mode systems: progression, AI behaviors, scoring/rewards, and balance for extended solo/co-op engagement.</p>
-            <p><strong
+            <p>Architected progression, AI, scoring, rewards, and balance for extended engagement in a co-dev live-service title.</p>
+            <p><strong>Role & impact:</strong> [YOUR EXPERIENCE FROM FOR HONOR HERE – e.g., built from scratch, Ubisoft collaboration challenges]</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/limbo-puzzle.jpg" alt="LIMBO puzzle mechanics screenshot">
+          <div class="project-info">
+            <h3>LIMBO & INSIDE</h3>
+            <p>Designed puzzles, levels, mechanics, and Lua scripting for atmospheric, critically acclaimed indie experiences.</p>
+            <p><strong>Role & impact:</strong> [YOUR EXPERIENCE FROM LIMBO/INSIDE HERE – e.g., iteration, performance optimization, QA leadership]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Design</h3>
+          <ul>
+            <li>Game Systems & Economies</li>
+            <li>Player Psychology & Motivations</li>
+            <li>Rapid Prototyping & Iteration</li>
+            <li>Metagame & Progression Systems</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Leadership</h3>
+          <ul>
+            <li>Mentoring & Team Development</li>
+            <li>Cross-Functional Collaboration</li>
+            <li>Agile Product Delivery</li>
+            <li>Fostering Experimental Culture</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Technical</h3>
+          <ul>
+            <li>Unity3D / Lua Scripting</li>
+            <li>Hardware-Software Integration</li>
+            <li>Playtesting & Feedback Synthesis</li>
+            <li>Live Operations Foundations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Peter Buchardt</h2>
+      <p>From Copenhagen's indie roots (Playdead, Limbo/Inside) to leadership at The LEGO Group, I've focused on curiosity, rigorous iteration, and creating play that connects people. M.A. in Interactive Digital Media from Aalborg University (thesis on game QA methods). Currently in Vejle with my family, prioritizing meaningful work and life balance while open to remote principal design opportunities.</p>
+      
+      <h3>Contact</h3>
+      <p class="contact-links">
+        Email: <a href="mailto:peter@buchardt.dk">peter@buchardt.dk</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/peter-buchardt" target="_blank">linkedin.com/in/peter-buchardt</a><br>
+        Portfolio updates & discussions welcome.
+      </p>
+    </section>
+  </main>
+
+  <button id="to-top" title="Back to Top">↑</button>
+
+  <footer>
+    <p>© 2026 Peter Buchardt. All rights reserved. Hosted on GitHub Pages.</p>
+  </footer>
+
+  <script>
+    // Show/hide "To Top" button on scroll
+    const toTopBtn = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        toTopBtn.classList.add('visible');
+      } else {
+        toTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll to top on click
+    toTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
