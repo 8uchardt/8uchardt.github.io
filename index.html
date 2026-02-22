@@ -82,6 +82,7 @@
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2.2rem;
       margin-top: 3rem;
+      align-items: start;            /* ← optional: aligns tops if heights vary */
     }
     .project-card {
       background: var(--card);
@@ -96,8 +97,11 @@
     }
     .project-card img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      height: auto;                  /* ← changed: let natural height breathe */
+      aspect-ratio: 16 / 9;          /* ← fallback / preferred ratio for consistency */
+      object-fit: contain;           /* ← key: shows full image, no crop */
+      background: #111;              /* ← subtle dark background for letterbox areas */
+      display: block;
     }
     .project-info { padding: 1.8rem; }
     .skills-grid {
