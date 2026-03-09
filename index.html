@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peter Buchardt - Senior Game Designer</title>
-  <meta name="description" content="Portfolio of Peter Buchardt, Senior Game Designer with 11+ years experience in AAA, indie, and interactive projects.">
+  <title>Peter Buchardt - Interactive Play Designer</title>
+  <meta name="description" content="Portfolio of Peter Buchardt – 15+ years in game design and digital-physical play. Work includes LIMBO, INSIDE, For Honor, LEGO Super Mario and current prototyping at the LEGO Group.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -89,6 +89,15 @@
       margin: 1rem auto 0;
     }
 
+    /* Category headings */
+    .category-header {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--accent-blue);
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+    }
+
     /* About */
     .about-grid {
       display: grid;
@@ -107,6 +116,14 @@
     .about-stats li { margin-bottom: 1rem; font-size: 1.05rem; }
     .about-stats li strong { color: var(--accent-green); }
 
+    /* Approach */
+    .approach {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
     /* Projects */
     .projects-grid {
       display: grid;
@@ -120,7 +137,6 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      position: relative;
     }
     .project-card:hover {
       transform: translateY(-10px);
@@ -223,7 +239,11 @@
       border: 1px solid var(--border);
     }
     .contact-item h3 { color: var(--accent-blue); margin-bottom: 1rem; }
-
+    
+    .contact-item p {
+      text-align: center;
+      word-break: break-word;
+    }
     /* Footer */
     footer {
       text-align: center;
@@ -245,11 +265,12 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Peter Buchardt</h1>
-      <p class="subtitle">Senior Game Designer & Interactive Experience Creator</p>
+      <p class="subtitle">Interactive Play and Game Designer</p>
       <div class="contact">
         <a href="mailto:buchardt@gmail.com">buchardt@gmail.com</a> |
-        <a href="tel:+447479844222">+44 7479 844 222</a> |
-        <a href="https://www.linkedin.com/in/peterbuchardt" target="_blank">LinkedIn</a>
+        <a href="tel:+45 52 15 95 69">+45 52 15 95 69</a> |
+        <a href="https://www.linkedin.com/in/peterbuchardt" target="_blank">LinkedIn</a> |
+        Vejle, Denmark
       </div>
     </div>
   </section>
@@ -258,153 +279,165 @@
     <h2>About</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>With over 11 years in game design, I've contributed to shipped titles across AAA, indie, and interactive projects. My expertise spans systems design, player psychology, rapid prototyping, and team leadership in ambiguous environments.</p>
-        <p>From atmospheric puzzles at Playdead to systemic modes at Ubisoft, I focus on creating coherent, engaging experiences that respect player motivations and drive long-term engagement.</p>
+        <p>I have 15+ years of experience in game design and digital-physical play development. This includes work on LIMBO and INSIDE at Playdead, For Honor at Studio Gobo, and seven years at the LEGO Group with LEGO Super Mario and most recently I worked with Play Software's experimentation projects.</p>
+        <p>My background is in systems design, level design, scripting and playtesting. I also hold a Cand. Mag. in Humanistic Informatics with a focus on Game Design from Aalborg University (2007).</p>
       </div>
       <div class="about-stats">
         <ul>
-          <li><strong>Experience:</strong> 11+ years</li>
-          <li><strong>Shipped Titles:</strong> 6</li>
-          <li><strong>Age:</strong> 37</li>
-          <li><strong>Employers:</strong> Studio Gobo, Playdead, Guppyworks, DADIU</li>
-          <li><strong>Keywords:</strong> Enterprising, Creative, Technical Flair, Scripter, Analytical, Structured, Quick Learner</li>
+          <li><strong>Experience:</strong> 15+ years</li>
+          <li><strong>Key projects:</strong> LEGO Super Mario (12 SKU waves), LIMBO, INSIDE, For Honor</li>
+          <li><strong>Current work:</strong> Paid Garden Leave</li>
+          <li><strong>Education:</strong> Cand. Mag. Humanistic Informatics, Game Design, Aalborg University</li>
+          <li><strong>Skills:</strong> C#, YAML, Unity 3D, Unreal Engine, rapid prototyping, playtesting</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <section id="approach">
+    <h2>Approach</h2>
+    <div class="approach">
+      <p>I work with rapid prototyping and playtesting, often with players and end-users, to understand what feels natural and enjoyable. This has been part of my work at Playdead, Studio Gobo and the LEGO Group.</p>
+    </div>
+  </section>
+
   <section id="projects">
     <h2>Projects</h2>
+
+    <!-- Commercial -->
+    <h3 class="category-header">Commercial</h3>
     <div class="projects-grid">
-      <div class="project-card" data-modal="for-honor">
-        <div class="project-image">
-          <img src="images/forHonor_ArcadeMode2.jpeg" alt="For Honor Arcade Mode">
+      <div class="project-card" data-modal="lego-smart-play">
+        <div class="project-image"><img src="https://images.brickset.com/news/128820_SMARTBrick_Hero_16x9.jpg" alt="LEGO Smart Play"></div>
+        <div class="project-content">
+          <h3 class="project-title">LEGO Smart Play Prototypes</h3>
+          <p class="project-meta">Digital-physical play | Jan 2024 - Present | LEGO Group</p>
+          <p class="project-role">Work in the Play Experimentation team on early prototypes combining physical LEGO bricks with sensors and apps.</p>
         </div>
+      </div>
+
+      <div class="project-card" data-modal="lego-super-mario">
+        <div class="project-image"><img src="https://i.ytimg.com/vi/lw9tVBilsrQ/maxresdefault.jpg" alt="LEGO Super Mario"></div>
+        <div class="project-content">
+          <h3 class="project-title">LEGO Super Mario</h3>
+          <p class="project-meta">Digital-physical action adventure | Mar 2019 - Dec 2023 | LEGO Group</p>
+          <p class="project-role">Product owner on digital-physical integration. Managed backlog across 6 years and 12 SKU waves. Participated in kid playtests and contributed to evergreen content planning.</p>
+        </div>
+      </div>
+
+      <div class="project-card" data-modal="for-honor">
+        <div class="project-image"><img src="images/forHonor_ArcadeMode2.jpeg" alt="For Honor Arcade Mode"></div>
         <div class="project-content">
           <h3 class="project-title">For Honor - Arcade Mode</h3>
-          <p class="project-meta">Multiplayer Action Fighting | Jan 2016 - Nov 2018 | Studio Gobo / Ubisoft</p>
-          <p class="project-role">Led team of 7; designed flexible systems for high-replayability 4v4 mode with extreme skill cap.</p>
+          <p class="project-meta">Multiplayer action fighting | Jan 2016 - Nov 2018 | Studio Gobo / Ubisoft</p>
+          <p class="project-role">One of three designers. Built Arcade Mode systems, levels and progression for 4v4 play.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="inside">
-        <div class="project-image">
-          <img src="images/INSIDE_banner2.jpg" alt="Inside">
-        </div>
+        <div class="project-image"><img src="images/INSIDE_banner2.jpg" alt="Inside"></div>
         <div class="project-content">
           <h3 class="project-title">Inside</h3>
-          <p class="project-meta">2D Puzzle Adventure | Jan 2011 - Jul 2015 | Playdead</p>
-          <p class="project-role">Designed levels, puzzles, and scripted logic; optimized for immersive experience.</p>
+          <p class="project-meta">2D puzzle adventure | Jan 2011 - Jul 2015 | Playdead</p>
+          <p class="project-role">Level and puzzle design, scripting and optimisation.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="limbo">
-        <div class="project-image">
-          <img src="images/LIMBO_banner2.jpg" alt="Limbo">
-        </div>
+        <div class="project-image"><img src="images/LIMBO_banner2.jpg" alt="Limbo"></div>
         <div class="project-content">
           <h3 class="project-title">Limbo</h3>
-          <p class="project-meta">2D Puzzle Platformer | Jan 2008 - Dec 2010 | Playdead</p>
-          <p class="project-role">Created puzzles, QA lead; contributed to genre-defining mechanics and polish.</p>
+          <p class="project-meta">2D puzzle platformer | Jan 2008 - Dec 2010 | Playdead</p>
+          <p class="project-role">Puzzle design, QA and optimisation.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="disney-infinity">
-        <div class="project-image">
-          <img src="images/DisneyInfinity_banner.jpg" alt="Disney Infinity">
-        </div>
+        <div class="project-image"><img src="images/DisneyInfinity_banner.jpg" alt="Disney Infinity"></div>
         <div class="project-content">
           <h3 class="project-title">Disney Infinity</h3>
-          <p class="project-meta">3D Action Puzzle Platformer | Jul 2015 - Mar 2016 | Studio Gobo (Cancelled)</p>
-          <p class="project-role">Mission design, story development, visual scripting, and pitch work.</p>
+          <p class="project-meta">3D action puzzle platformer | Jul 2015 - Mar 2016 | Studio Gobo</p>
+          <p class="project-role">Mission design and visual scripting.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="miami-street">
-        <div class="project-image">
-          <img src="images/Miami_Street.jpg" alt="Miami Street">
-        </div>
+        <div class="project-image"><img src="images/Miami_Street.jpg" alt="Miami Street"></div>
         <div class="project-content">
           <h3 class="project-title">Miami Street</h3>
-          <p class="project-meta">F2P Mobile Racer | Jul 2016 - Dec 2016 | Electric Square / Microsoft</p>
-          <p class="project-role">Mission design, gameplay systems, and story maintenance during soft launch.</p>
+          <p class="project-meta">F2P mobile racer | Jul 2016 - Dec 2016 | Electric Square</p>
+          <p class="project-role">Mission design, gameplay systems and story maintenance during soft launch.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="hca-2">
-        <div class="project-image">
-          <img src="images/HCA2_1.jpg" alt="HCA 2">
-        </div>
+        <div class="project-image"><img src="images/HCA2_1.jpg" alt="HCA 2"></div>
         <div class="project-content">
           <h3 class="project-title">HCA 2 - The Snow Queen</h3>
-          <p class="project-meta">3D Adventure | Jun 2007 - Nov 2007 | Guppyworks (Cancelled)</p>
-          <p class="project-role">Level/quest scripting (Squirrel/LUA), economy design, mini-game balancing.</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="agent-hugo">
-        <div class="project-image">
-          <img src="images/hugo_lemoon.png" alt="Agent Hugo">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Agent Hugo - Lemoon Twist</h3>
-          <p class="project-meta">3D Platform Action | Jul 2007 - Aug 2007 | NDS / ITE</p>
-          <p class="project-role">QA: gameplay testing and bug reporting using Fly Spray.</p>
+          <p class="project-meta">3D adventure | Jun 2007 - Nov 2007 | Guppyworks</p>
+          <p class="project-role">Level and quest scripting (LUA / Squirrel), economy design and mini-game balancing during full-time internship while finishing Master studies.</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="hca-ugly">
-        <div class="project-image">
-          <img src="images/HCA_1.jpeg" alt="HCA - Ugly Prince">
-        </div>
+        <div class="project-image"><img src="images/HCA_1.jpeg" alt="HCA - Ugly Prince"></div>
         <div class="project-content">
           <h3 class="project-title">HCA - The Ugly Prince Duckling</h3>
-          <p class="project-meta">3D Adventure | Jan 2006 - Jul 2006 | Guppyworks</p>
-          <p class="project-role">Level design and scripting (LUA), QA for two levels.</p>
+          <p class="project-meta">3D adventure | Jan 2006 - Jul 2006 | Guppyworks</p>
+          <p class="project-role">Level design, scripting (LUA) and QA. Earlier internship at Guppyworks also included game design, scripting and testing.</p>
         </div>
       </div>
 
-      <div class="project-card" data-modal="the-house">
-        <div class="project-image">
-          <img src="images/the_house-1.jpg" alt="The House">
+      <div class="project-card" data-modal="agent-hugo">
+        <div class="project-image"><img src="images/hugo_lemoon.png" alt="Agent Hugo"></div>
+        <div class="project-content">
+          <h3 class="project-title">Agent Hugo - Lemoon Twist</h3>
+          <p class="project-meta">3D platform action | Jul 2007 - Aug 2007 | NDS / ITE</p>
+          <p class="project-role">QA: gameplay testing and bug reporting for published title.</p>
         </div>
+      </div>
+    </div>
+
+    <!-- Educational -->
+    <h3 class="category-header">Educational</h3>
+    <div class="projects-grid">
+      <div class="project-card" data-modal="the-house">
+        <div class="project-image"><img src="images/the_house-1.jpg" alt="The House"></div>
         <div class="project-content">
           <h3 class="project-title">The House</h3>
-          <p class="project-meta">3D God Game | Mar 2007 | DADIU</p>
-          <p class="project-role">Mechanics, AI, skill systems, level construction (Half-Life 2 mod).</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="brickwalker">
-        <div class="project-image">
-          <img src="images/BW-1.jpg" alt="Brickwalker">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Brickwalker</h3>
-          <p class="project-meta">3D Multiplayer Shooter | Aug 2006 - Jan 2007 | 9K Games</p>
-          <p class="project-role">Level design/implementation, particles, triggers, balancing (Torque Engine).</p>
+          <p class="project-meta">3D god game | Mar 2007 | DADIU</p>
+          <p class="project-role">Designed mechanics, AI, skill systems and level construction (Half-Life 2 mod).</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="ballocks">
-        <div class="project-image">
-          <img src="images/Ballocks-1.jpg" alt="Ballocks">
-        </div>
+        <div class="project-image"><img src="images/Ballocks-1.jpg" alt="Ballocks"></div>
         <div class="project-content">
           <h3 class="project-title">Ballocks</h3>
-          <p class="project-meta">3D Action Shooter | May 2006 | DADIU</p>
-          <p class="project-role">Concept, mechanics, progression, level design (Half-Life 2 mod).</p>
+          <p class="project-meta">3D action shooter | May 2006 | DADIU</p>
+          <p class="project-role">Concept, mechanics, progression and level design (Half-Life 2 mod).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recreational -->
+    <h3 class="category-header">Recreational</h3>
+    <div class="projects-grid">
+      <div class="project-card" data-modal="brickwalker">
+        <div class="project-image"><img src="images/BW-1.jpg" alt="Brickwalker"></div>
+        <div class="project-content">
+          <h3 class="project-title">Brickwalker</h3>
+          <p class="project-meta">3D multiplayer shooter | Aug 2006 - Jan 2007 | 9K Games</p>
+          <p class="project-role">Level design, implementation, particles, triggers and balancing (Torque Engine).</p>
         </div>
       </div>
 
       <div class="project-card" data-modal="game-jams">
-        <div class="project-image">
-          <img src="images/trggrtme.png" alt="Game Jam Games">
-        </div>
+        <div class="project-image"><img src="images/trggrtme.png" alt="Game Jam Games"></div>
         <div class="project-content">
           <h3 class="project-title">Game Jam Prototypes</h3>
           <p class="project-meta">Various | Recent | Unicorn7</p>
-          <p class="project-role">TRGGR TME (Puzzle), The Shot (Sniping), RFLXZ (Arcade), SKNT (Racing).</p>
+          <p class="project-role">TRGGR TME (puzzle), The Shot (sniping), RFLXZ (arcade), SKNT (racing).</p>
         </div>
       </div>
     </div>
@@ -419,15 +452,11 @@
       </div>
       <div class="contact-item">
         <h3>Phone</h3>
-        <p><a href="tel:+447479844222">+44 7479 844 222</a></p>
+        <p><a href="tel:+45 52 15 95 69">+45 52 15 95 69</a></p>
       </div>
       <div class="contact-item">
         <h3>LinkedIn</h3>
         <p><a href="https://www.linkedin.com/in/peterbuchardt" target="_blank">linkedin.com/in/peterbuchardt</a></p>
-      </div>
-      <div class="contact-item">
-        <h3>Résumé</h3>
-        <p><a href="https://8uchardt.com/files/resume_peter_buchardt.pdf" target="_blank">Download PDF</a></p>
       </div>
     </div>
   </section>
@@ -450,162 +479,149 @@
     const closeBtn = document.querySelector('.modal-close');
 
     const projectData = {
+      'lego-smart-play': `
+        <h3>LEGO Smart Play Prototypes</h3>
+        <p><strong>Type:</strong> Digital-physical play system</p>
+        <p><strong>Period:</strong> January 2024 - Present</p>
+        <p><strong>Developer:</strong> LEGO Group</p>
+        <p><strong>Role:</strong> Work on early prototypes that combine physical LEGO bricks with sensors and apps. Contributed to guidelines for Smart Brick colour-sensor usage in collaboration with LEGO Design and SP3.</p>
+        <div class="images">
+          <img src="https://images.brickset.com/news/128820_SMARTBrick.jpg" alt="Smart Brick">
+        </div>
+      `,
+      'lego-super-mario': `
+        <h3>LEGO Super Mario</h3>
+        <p><strong>Type:</strong> Digital-physical action adventure</p>
+        <p><strong>Period:</strong> March 2019 - December 2023</p>
+        <p><strong>Status:</strong> 12 SKU waves over 6 years</p>
+        <p><strong>Developer:</strong> LEGO Group</p>
+        <p><strong>Role:</strong> Product owner on digital-physical integration. Prototyped on the Mario figure using YAML. Participated in kid playtests in LA and Billund. Contributed to evergreen strategy and memory roadmap.</p>
+        <p><a href="https://www.youtube.com/watch?v=lw9tVBilsrQ" target="_blank">Watch trailer</a></p>
+      `,
       'for-honor': `
         <h3>For Honor - Arcade Mode</h3>
-        <p><strong>Game Type:</strong> Multiplayer Action Fighting</p>
+        <p><strong>Type:</strong> Multiplayer action fighting</p>
         <p><strong>Period:</strong> January 2016 - November 2018</p>
-        <p><strong>Status:</strong> Live on PS4, Xbox One, Steam, Uplay</p>
-        <p><strong>Developer:</strong> Studio Gobo with Ubisoft</p>
-        <p><strong>My Role:</strong> As Lead Developer, I managed a team of 7 game and level designers, programmers, and artists, and led the development of a new 4 vs 4 objective-based game mode. We designed flexible systems for ability/level templates, supporting high replayability and skill cap.</p>
-        <p><a href="https://www.youtube.com/watch?v=xHNYnUso8i4" target="_blank">Watch Trailer</a></p>
+        <p><strong>Status:</strong> Live</p>
+        <p><strong>Developer:</strong> Studio Gobo / Ubisoft</p>
+        <p><strong>Role:</strong> Designed systems, levels and progression for the 4v4 Arcade Mode.</p>
         <div class="images">
           <img src="images/forHonor_ArcadeMode2.jpeg" alt="Arcade Mode">
         </div>
       `,
       'inside': `
         <h3>Inside</h3>
-        <p><strong>Game Type:</strong> 2D Puzzle Adventure</p>
+        <p><strong>Type:</strong> 2D puzzle adventure</p>
         <p><strong>Period:</strong> January 2011 - July 2015</p>
-        <p><strong>Status:</strong> Released on PS4, Switch, Xbox One, Steam, Mobile</p>
         <p><strong>Developer:</strong> Playdead</p>
-        <p><strong>My Role:</strong> Designing levels and puzzles, scripting game logic, optimization.</p>
+        <p><strong>Role:</strong> Level and puzzle design, scripting and optimisation.</p>
         <div class="images">
-          <img src="images/INSIDE_banner2.jpg" alt="Inside Banner">
+          <img src="images/INSIDE_banner2.jpg" alt="Inside">
         </div>
       `,
       'limbo': `
         <h3>Limbo</h3>
-        <p><strong>Game Type:</strong> 2D Puzzle Platformer</p>
+        <p><strong>Type:</strong> 2D puzzle platformer</p>
         <p><strong>Period:</strong> January 2008 - December 2010</p>
-        <p><strong>Status:</strong> Released on Xbox One, PS4, Steam, etc.</p>
         <p><strong>Developer:</strong> Playdead</p>
-        <p><strong>My Role:</strong> Creating and refining puzzles, QA lead, optimization for smooth gameplay.</p>
+        <p><strong>Role:</strong> Puzzle design, QA and optimisation.</p>
         <div class="images">
-          <img src="images/LIMBO_banner2.jpg" alt="Limbo Banner">
+          <img src="images/LIMBO_banner2.jpg" alt="Limbo">
         </div>
       `,
       'disney-infinity': `
         <h3>Disney Infinity</h3>
-        <p><strong>Game Type:</strong> 3D Action Puzzle Platformer</p>
+        <p><strong>Type:</strong> 3D action puzzle platformer</p>
         <p><strong>Period:</strong> July 2015 - March 2016</p>
-        <p><strong>Status:</strong> Cancelled</p>
         <p><strong>Developer:</strong> Studio Gobo</p>
-        <p><strong>My Role:</strong> Mission Design, game design, story development, visual scripting, pitch work.</p>
+        <p><strong>Role:</strong> Mission design and visual scripting.</p>
         <div class="images">
           <img src="images/DisneyInfinity_banner.jpg" alt="Disney Infinity">
         </div>
       `,
       'miami-street': `
         <h3>Miami Street</h3>
-        <p><strong>Game Type:</strong> F2P Mobile Racer</p>
+        <p><strong>Type:</strong> F2P mobile racer</p>
         <p><strong>Period:</strong> July 2016 - December 2016</p>
-        <p><strong>Status:</strong> Soft launched</p>
-        <p><strong>Developer:</strong> Electric Square (sister of Studio Gobo)</p>
-        <p><strong>My Role:</strong> Mission Design, game design, story development, visual scripting, pitch work.</p>
+        <p><strong>Developer:</strong> Electric Square</p>
+        <p><strong>Role:</strong> Mission design, gameplay systems and story maintenance during soft launch.</p>
         <div class="images">
           <img src="images/Miami_Street.jpg" alt="Miami Street">
         </div>
       `,
       'hca-2': `
-        <h3>HCA 2 - The Snow Queen & The Magic Mirror</h3>
-        <p><strong>Game Type:</strong> 3D 3rd person adventure</p>
+        <h3>HCA 2 - The Snow Queen</h3>
+        <p><strong>Type:</strong> 3D adventure</p>
         <p><strong>Period:</strong> June 2007 - November 2007</p>
-        <p><strong>Status:</strong> Cancelled</p>
         <p><strong>Developer:</strong> Guppyworks</p>
-        <p><strong>My Role:</strong> Level/quest scripting (Squirrel/LUA), economy system design, mini-game balancing.</p>
-        <p><strong>Statement:</strong> "During Peters Master studies he was working full time as an intern... I really hope well be able to work together in the future." - Jacob Buck, Director of Development</p>
+        <p><strong>Role:</strong> Level and quest scripting using LUA and Squirrel (plus in-house language + XML). Designed economy systems and balanced mini-games. Worked full-time as intern during Master studies.</p>
+        <p><strong>Quote:</strong> "During Peters Master studies he was working full time as an intern... I really hope we'll be able to work together in the future." – Jacob Buck, Director of Development</p>
         <div class="images">
           <img src="images/HCA2_1.jpg" alt="HCA2 1">
-          <img src="images/HCA2_2.jpg" alt="HCA2 2">
-          <img src="images/HCA2_3.jpg" alt="HCA2 3">
-          <img src="images/HCA2_4.jpg" alt="HCA2 4">
-        </div>
-      `,
-      'agent-hugo': `
-        <h3>Agent Hugo - Lemoon Twist</h3>
-        <p><strong>Game Type:</strong> 3D 3rd person platform action</p>
-        <p><strong>Period:</strong> July - August 2007</p>
-        <p><strong>Status:</strong> Published</p>
-        <p><strong>Developer:</strong> NDS and ITE</p>
-        <p><strong>My Role:</strong> QA: gameplay testing and bug reporting.</p>
-        <div class="images">
-          <img src="images/hugo_lemoon.png" alt="Hugo Lemoon">
-          <img src="images/Hugo-1.gif" alt="Hugo 1">
-          <img src="images/Hugo-2.gif" alt="Hugo 2">
         </div>
       `,
       'hca-ugly': `
         <h3>HCA - The Ugly Prince Duckling</h3>
-        <p><strong>Game Type:</strong> 3D 3rd person adventure</p>
-        <p><strong>Period:</strong> January - July 2006</p>
-        <p><strong>Status:</strong> Published worldwide on PC</p>
+        <p><strong>Type:</strong> 3D adventure</p>
+        <p><strong>Period:</strong> January 2006 - July 2006</p>
         <p><strong>Developer:</strong> Guppyworks</p>
-        <p><strong>My Role:</strong> Level design and scripting (LUA), QA.</p>
-        <p><strong>Statement:</strong> "Peter is the kind of person that never runs out of great ideas... All the levels he worked on became the high mark." - Simon Larsen, Game Scripter</p>
+        <p><strong>Role:</strong> Level design and scripting (LUA). Earlier internship at Guppyworks also included game design, scripting and testing.</p>
+        <p><strong>Quote:</strong> "Peter is the kind of person that never runs out of great ideas... All the levels he worked on became the high mark." – Simon Larsen, Game Scripter</p>
         <div class="images">
           <img src="images/HCA_1.jpeg" alt="HCA 1">
-          <img src="images/HCA1_1.jpg" alt="HCA1 1">
-          <img src="images/HCA1_2.jpg" alt="HCA1 2">
+        </div>
+      `,
+      'agent-hugo': `
+        <h3>Agent Hugo - Lemoon Twist</h3>
+        <p><strong>Type:</strong> 3D platform action</p>
+        <p><strong>Period:</strong> July - August 2007</p>
+        <p><strong>Developer:</strong> NDS / ITE</p>
+        <p><strong>Role:</strong> QA: gameplay testing and bug reporting using Fly Spray for a published title.</p>
+        <div class="images">
+          <img src="images/hugo_lemoon.png" alt="Hugo">
         </div>
       `,
       'the-house': `
         <h3>The House</h3>
-        <p><strong>Game Type:</strong> 3D 1st person God Game action/puzzle</p>
+        <p><strong>Type:</strong> 3D god game</p>
         <p><strong>Period:</strong> March 2007</p>
-        <p><strong>Status:</strong> Published as Half-Life 2 mod</p>
-        <p><strong>Developer:</strong> DADIU</p>
-        <p><strong>My Role:</strong> Designed mechanics, AI, skill systems, level construction.</p>
+        <p><strong>Developer:</strong> DADIU (student project)</p>
+        <p><strong>Role:</strong> Designed mechanics, AI, skill systems and built levels (Half-Life 2 mod).</p>
         <div class="images">
-          <img src="images/the_house-1.jpg" alt="The House 1">
-          <img src="images/the_house-2.jpg" alt="The House 2">
-          <img src="images/the_house-3.jpg" alt="The House 3">
-          <img src="images/the_house-4.jpg" alt="The House 4">
-        </div>
-      `,
-      'brickwalker': `
-        <h3>Brickwalker</h3>
-        <p><strong>Game Type:</strong> 3D 3rd person multi player action shooter</p>
-        <p><strong>Period:</strong> August 2006 - January 2007</p>
-        <p><strong>Status:</strong> Published as freeware</p>
-        <p><strong>Developer:</strong> 9K Games</p>
-        <p><strong>My Role:</strong> Level design/implementation, particles, triggers, balancing.</p>
-        <p><strong>Statement:</strong> "Peter has during his involvement... I hope to work with Peter again some time." - Søren Veigaard, Project Manager</p>
-        <div class="images">
-          <img src="images/BW-1.jpg" alt="BW 1">
-          <img src="images/BW-2.jpg" alt="BW 2">
-          <img src="images/BW-3.jpg" alt="BW 3">
-          <img src="images/BW-4.jpg" alt="BW 4">
+          <img src="images/the_house-1.jpg" alt="The House">
         </div>
       `,
       'ballocks': `
         <h3>Ballocks</h3>
-        <p><strong>Game Type:</strong> 3D 3rd person action shooter</p>
+        <p><strong>Type:</strong> 3D action shooter</p>
         <p><strong>Period:</strong> May 2006</p>
-        <p><strong>Status:</strong> Published as Half-Life 2 mod</p>
-        <p><strong>Developer:</strong> DADIU</p>
-        <p><strong>My Role:</strong> Concept, mechanics, progression, level design.</p>
+        <p><strong>Developer:</strong> DADIU (student project)</p>
+        <p><strong>Role:</strong> Concept, mechanics, progression and level design (Half-Life 2 mod).</p>
         <div class="images">
-          <img src="images/Ballocks-1.jpg" alt="Ballocks 1">
-          <img src="images/Ballocks-2.jpg" alt="Ballocks 2">
-          <img src="images/Ballocks-3.jpg" alt="Ballocks 3">
-          <img src="images/Ballocks-4.jpg" alt="Ballocks-4">
-          <img src="images/Ballocks-Cover.jpg" alt="Ballocks Cover">
+          <img src="images/Ballocks-1.jpg" alt="Ballocks">
+        </div>
+      `,
+      'brickwalker': `
+        <h3>Brickwalker</h3>
+        <p><strong>Type:</strong> 3D multiplayer shooter</p>
+        <p><strong>Period:</strong> August 2006 - January 2007</p>
+        <p><strong>Developer:</strong> 9K Games</p>
+        <p><strong>Role:</strong> Level design, implementation, particles, triggers and balancing (Torque Engine).</p>
+        <div class="images">
+          <img src="images/BW-1.jpg" alt="Brickwalker">
         </div>
       `,
       'game-jams': `
-        <h3>Recent Game Jam Games</h3>
-        <p>Prototypes from Unicorn7 game jams:</p>
+        <h3>Game Jam Prototypes</h3>
+        <p>Prototypes created during Nordic Game Jams:</p>
         <ul>
-          <li><a href="http://www.unicorn7.org/games/game/356/" target="_blank">TRGGR TME - Puzzle</a></li>
-          <li><a href="http://www.unicorn7.org/games/game/60/" target="_blank">The Shot - 2D Sniping</a></li>
-          <li><a href="http://www.unicorn7.org/games/game/311/" target="_blank">RFLXZ - Arcade</a></li>
-          <li><a href="http://www.unicorn7.org/games/game/467/" target="_blank">SKNT - One Button Racing</a></li>
+          <li><a href="https://games.softpedia.com/get/Freeware-Games/TRGGR-TME.shtml" target="_blank">TRGGR TME – Puzzle</a></li>
+          <li>The Shot – 2D Sniping</li>
+          <li>RFLXZ – Arcade</li>
+          <li>SKNT – One Button Racing</li>
         </ul>
         <div class="images">
           <img src="images/trggrtme.png" alt="TRGGR TME">
-          <img src="images/theShot.png" alt="The Shot">
-          <img src="images/rflxz.png" alt="RFLXZ">
-          <img src="images/skoent.png" alt="SKNT">
         </div>
       `
     };
