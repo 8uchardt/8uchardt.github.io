@@ -4,641 +4,1023 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peter Buchardt - Interactive Play Designer</title>
-  <meta name="description" content="Portfolio of Peter Buchardt – 15+ years in game design and digital-physical play. Work includes LIMBO, INSIDE, For Honor, LEGO Super Mario and current prototyping at the LEGO Group.">
+  <meta name="description" content="Portfolio of Peter Buchardt - game and interactive play designer with experience across Playdead, Studio Gobo, LEGO Group, and Guppyworks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0a;
-      --text: #f0f0f0;
-      --accent-green: #88f345;
-      --accent-blue: #1292a5;
-      --card-bg: #1a1a1a;
-      --border: #333;
-      --shadow: rgba(0,0,0,0.5);
+      --bg: #f3f5f6;
+      --surface: #ffffff;
+      --surface-soft: #ecf1f5;
+      --ink: #16212f;
+      --ink-soft: #46566a;
+      --line: #cfdae3;
+      --brand: #1e4e67;
+      --brand-soft: #2f7086;
+      --accent: #0f9f9b;
+      --shadow: 0 16px 34px rgba(18, 42, 61, 0.12);
+      --radius-lg: 18px;
+      --radius-md: 12px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 8%, rgba(15, 159, 155, 0.18), transparent 34%),
+        radial-gradient(circle at 86% 20%, rgba(30, 78, 103, 0.2), transparent 32%),
+        var(--bg);
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a { color: var(--accent-blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(135deg, var(--bg) 0%, #111 100%);
-      position: relative;
+    h1, h2, h3, h4, summary {
+      font-family: 'Sora', sans-serif;
+      letter-spacing: 0.01em;
     }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4.5rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .section-lead {
+      color: var(--ink-soft);
+      max-width: 72ch;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero {
+      min-height: 84vh;
+      display: grid;
+      align-items: center;
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('images/forHonor_ArcadeMode2.jpeg') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: 0;
+      inset: 0;
+      background: linear-gradient(132deg, rgba(255, 255, 255, 0.8) 0%, rgba(236, 241, 245, 0.44) 44%, rgba(24, 101, 122, 0.16) 100%);
+      z-index: -1;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 2rem; }
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 700;
-      color: var(--accent-green);
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.8rem;
+      align-items: stretch;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.3rem, 7.2vw, 4.8rem);
+      line-height: 1.06;
       margin-bottom: 1rem;
-      text-shadow: 0 0 20px rgba(136, 243, 69, 0.3);
-    }
-    .hero .subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: #ccc;
-    }
-    .hero .contact {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    .hero .contact a { margin: 0 1rem; }
-
-    /* Sections */
-    section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    section h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--accent-green);
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    section h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: var(--accent-blue);
-      margin: 1rem auto 0;
+      color: #102033;
     }
 
-    /* Category headings */
-    .category-header {
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--accent-blue);
-      text-align: center;
-      margin: 3rem 0 1.5rem;
+    .hero-copy .subtitle {
+      font-size: clamp(1.08rem, 2.4vw, 1.35rem);
+      color: var(--ink-soft);
+      margin-bottom: 1.4rem;
+      max-width: 56ch;
     }
 
-    /* About */
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .hero-pill {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(31, 78, 102, 0.22);
+      border-radius: 999px;
+      padding: 0.45rem 0.8rem;
+      color: #173049;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(32, 77, 98, 0.2);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      display: grid;
+      gap: 0.95rem;
+      align-content: start;
+    }
+
+    .hero-card h2 {
+      font-size: 1.05rem;
+      color: var(--brand);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .hero-card li strong {
+      color: var(--ink);
+    }
+
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
-    .about-stats {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-    .about-stats ul { list-style: none; }
-    .about-stats li { margin-bottom: 1rem; font-size: 1.05rem; }
-    .about-stats li strong { color: var(--accent-green); }
-
-    /* Approach */
-    .approach {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      text-align: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.6rem;
     }
 
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-    }
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px var(--shadow);
-    }
-    .project-image {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-    }
-    .project-content {
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 28px rgba(32, 48, 67, 0.06);
       padding: 1.5rem;
     }
-    .project-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--accent-green);
-      margin-bottom: 0.5rem;
-    }
-    .project-meta {
-      font-size: 0.9rem;
-      color: #bbb;
-      margin-bottom: 1rem;
-    }
-    .project-role {
-      font-size: 1rem;
-      line-height: 1.4;
+
+    .panel p + p {
+      margin-top: 0.9rem;
     }
 
-    /* Modal */
+    .stats-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      color: var(--ink-soft);
+    }
+
+    .stats-list strong {
+      color: var(--ink);
+    }
+
+    .approach-box {
+      background: linear-gradient(145deg, var(--surface) 0%, var(--surface-soft) 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      color: var(--ink-soft);
+      font-size: 1.06rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 24px rgba(26, 57, 81, 0.16);
+    }
+
+    .project-image {
+      height: 180px;
+      background: #e4e9ee;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-content {
+      padding: 1.1rem 1rem 1.15rem;
+    }
+
+    .project-title {
+      font-size: 1.06rem;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    .project-meta {
+      font-size: 0.86rem;
+      color: var(--brand-soft);
+      margin-bottom: 0.55rem;
+    }
+
+    .project-role {
+      font-size: 0.93rem;
+      color: var(--ink-soft);
+    }
+
+    .engine-section {
+      background: linear-gradient(175deg, rgba(236, 241, 245, 0.6), rgba(243, 245, 246, 0.9));
+      border-top: 1px solid rgba(54, 92, 119, 0.2);
+      border-bottom: 1px solid rgba(54, 92, 119, 0.2);
+    }
+
+    .company-accordion {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .company-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(27, 56, 77, 0.08);
+    }
+
+    .company-panel summary {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.8rem;
+      align-items: center;
+      cursor: pointer;
+      padding: 1rem 1.2rem;
+      background: linear-gradient(170deg, #ffffff 0%, #eef3f7 100%);
+    }
+
+    .company-panel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .company-header h3 {
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .company-header p {
+      font-size: 0.9rem;
+      color: var(--brand-soft);
+    }
+
+    .toggle-indicator {
+      font-size: 0.86rem;
+      color: var(--brand);
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid rgba(31, 86, 109, 0.26);
+      border-radius: 999px;
+      padding: 0.3rem 0.62rem;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .company-panel[open] .toggle-indicator::before {
+      content: 'Collapse';
+    }
+
+    .company-panel:not([open]) .toggle-indicator::before {
+      content: 'Expand';
+    }
+
+    .company-body {
+      border-top: 1px solid var(--line);
+      padding: 1.15rem 1.2rem 1.35rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .company-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .chip-block {
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.75rem 0.8rem;
+    }
+
+    .chip-block h4 {
+      font-size: 0.85rem;
+      color: var(--brand);
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .chip-block p {
+      color: var(--ink-soft);
+      font-size: 0.93rem;
+    }
+
+    .engine-breakdown {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .engine-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .engine-card h4 {
+      color: var(--ink);
+      font-size: 0.98rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .engine-card p {
+      color: var(--ink-soft);
+      margin-bottom: 0.5rem;
+      font-size: 0.94rem;
+    }
+
+    .engine-card ul {
+      padding-left: 1rem;
+      color: var(--ink-soft);
+      display: grid;
+      gap: 0.34rem;
+      font-size: 0.92rem;
+    }
+
+    .callout {
+      background: rgba(15, 159, 155, 0.1);
+      border: 1px solid rgba(15, 159, 155, 0.35);
+      border-radius: 9px;
+      padding: 0.7rem 0.8rem;
+      color: #145057;
+      font-size: 0.93rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+    }
+
+    .contact-item h3 {
+      font-size: 0.94rem;
+      color: var(--brand);
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-item p {
+      color: var(--ink-soft);
+      word-break: break-word;
+    }
+
     .modal {
       display: none;
       position: fixed;
+      inset: 0;
       z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(12, 28, 41, 0.74);
       backdrop-filter: blur(5px);
-      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
     }
-    .modal.active { display: flex; align-items: center; justify-content: center; }
+
+    .modal.active {
+      display: flex;
+    }
+
     .modal-content {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      max-width: 90%;
-      width: 800px;
-      max-height: 90vh;
+      width: min(760px, 100%);
+      max-height: 88vh;
       overflow-y: auto;
-      padding: 2rem;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #d0dae3;
+      box-shadow: 0 26px 60px rgba(15, 31, 48, 0.35);
+      padding: 1.3rem 1.35rem 1.4rem;
       position: relative;
-      margin: 2rem;
+      transform-origin: center;
+      animation: pop-in 180ms ease;
     }
+
+    @keyframes pop-in {
+      from {
+        transform: scale(0.97);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
     .modal-close {
       position: absolute;
-      top: 1rem; right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 2rem;
+      top: 0.55rem;
+      right: 0.65rem;
+      border: 1px solid var(--line);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: #fff;
+      color: #1d3448;
       cursor: pointer;
-      opacity: 0.7;
+      font-size: 1.12rem;
+      line-height: 1;
     }
-    .modal-close:hover { opacity: 1; }
+
     .modal h3 {
-      color: var(--accent-green);
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
+      margin-bottom: 0.7rem;
+      color: var(--ink);
     }
-    .modal p { margin-bottom: 1rem; }
-    .modal ul { margin: 1rem 0; padding-left: 1.5rem; }
+
+    .modal p {
+      color: var(--ink-soft);
+      margin-bottom: 0.45rem;
+    }
+
+    .modal ul {
+      padding-left: 1.1rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.7rem;
+    }
+
     .modal .images {
+      margin-top: 0.65rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.65rem;
     }
-    .modal img { width: 100%; border-radius: 8px; }
 
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-    .contact-item {
-      background: var(--card-bg);
-      padding: 2rem;
+    .modal .images img {
+      width: 100%;
       border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-    .contact-item h3 { color: var(--accent-blue); margin-bottom: 1rem; }
-    
-    .contact-item p {
-      text-align: center;
-      word-break: break-word;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #111;
-      color: #888;
+      border: 1px solid var(--line);
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 4rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      section { padding: 3rem 1rem; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.8rem 0 2.6rem;
+      text-align: center;
+      color: #5b6d81;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .company-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(1120px, calc(100% - 1.3rem));
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .project-image {
+        height: 165px;
+      }
+
+      .company-panel summary {
+        padding: 0.86rem 0.92rem;
+      }
+
+      .company-body {
+        padding: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Peter Buchardt</h1>
-      <p class="subtitle">Interactive Play and Game Designer</p>
-      <div class="contact">
-        <a href="mailto:buchardt@gmail.com">buchardt@gmail.com</a> |
-        <a href="tel:+45 52 15 95 69">+45 52 15 95 69</a> |
-        <a href="https://www.linkedin.com/in/peterbuchardt" target="_blank">LinkedIn</a> |
-        Vejle, Denmark
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="tag">Portfolio</span>
+        <h1>Peter Buchardt</h1>
+        <p class="subtitle">Interactive Play and Game Designer focused on system clarity, practical tooling, and shipped player-facing experiences across games and digital-physical products.</p>
+        <div class="hero-meta">
+          <span class="hero-pill">15+ years experience</span>
+          <span class="hero-pill">Game and level design</span>
+          <span class="hero-pill">Scripting and prototyping</span>
+          <span class="hero-pill">Digital-physical products</span>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I have 15+ years of experience in game design and digital-physical play development. This includes work on LIMBO and INSIDE at Playdead, For Honor at Studio Gobo, and seven years at the LEGO Group with LEGO Super Mario and most recently I worked with Play Software's experimentation projects.</p>
-        <p>My background is in systems design, level design, scripting and playtesting. I also hold a Cand. Mag. in Humanistic Informatics with a focus on Game Design from Aalborg University (2007).</p>
-      </div>
-      <div class="about-stats">
+      <aside class="hero-card" aria-label="Quick profile">
+        <h2>Contact and Profile</h2>
         <ul>
-          <li><strong>Experience:</strong> 15+ years</li>
-          <li><strong>Key projects:</strong> LEGO Super Mario (12 SKU waves), LIMBO, INSIDE, For Honor</li>
-          <li><strong>Current work:</strong> Paid Garden Leave</li>
+          <li><strong>Email:</strong> <a href="mailto:buchardt@gmail.com">buchardt@gmail.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+4552159569">+45 52 15 95 69</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/peterbuchardt" target="_blank" rel="noopener noreferrer">linkedin.com/in/peterbuchardt</a></li>
+          <li><strong>Location:</strong> Vejle, Denmark</li>
           <li><strong>Education:</strong> Cand. Mag. Humanistic Informatics, Game Design, Aalborg University</li>
-          <li><strong>Skills:</strong> C#, YAML, Unity 3D, Unreal Engine, rapid prototyping, playtesting</li>
         </ul>
-      </div>
+      </aside>
     </div>
-  </section>
+  </header>
 
-  <section id="approach">
-    <h2>Approach</h2>
-    <div class="approach">
-      <p>I work with rapid prototyping and playtesting, often with players and end-users, to understand what feels natural and enjoyable. This has been part of my work at Playdead, Studio Gobo and the LEGO Group.</p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <!-- Commercial -->
-    <h3 class="category-header">Commercial</h3>
-    <div class="projects-grid">
-      <div class="project-card" data-modal="lego-smart-play">
-        <div class="project-image"><img src="https://images.brickset.com/news/128820_SMARTBrick_Hero_16x9.jpg" alt="LEGO Smart Play"></div>
-        <div class="project-content">
-          <h3 class="project-title">LEGO Smart Play Prototypes</h3>
-          <p class="project-meta">Digital-physical play | Jan 2024 - Present | LEGO Group</p>
-          <p class="project-role">Work in the Play Experimentation team on early prototypes combining physical LEGO bricks with sensors and apps.</p>
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <span class="tag">About</span>
+        <h2 class="section-title">Designing Play Through Systems and Iteration</h2>
+        <div class="about-grid">
+          <article class="panel">
+            <p>I have worked across AAA games, independent teams, and digital-physical product development. My work includes LIMBO and INSIDE at Playdead, mission and systems work at Studio Gobo, and seven years at the LEGO Group with LEGO Super Mario and SMART Play experimentation.</p>
+            <p>My background combines game design, level design, scripting, technical collaboration, and playtesting. I focus on building systems that are understandable for teams, scalable for production, and clear for players.</p>
+          </article>
+          <aside class="panel">
+            <ul class="stats-list">
+              <li><strong>Core strengths:</strong> systems design, mission design, visual scripting, cross-discipline communication</li>
+              <li><strong>Recent highlights:</strong> LEGO Super Mario tooling and memory optimization, SMART Play prototyping</li>
+              <li><strong>Selected shipped titles:</strong> LIMBO, INSIDE, For Honor Arcade Mode</li>
+              <li><strong>Technical focus:</strong> gameplay scripting, event architecture, workflow tooling</li>
+            </ul>
+          </aside>
         </div>
       </div>
+    </section>
 
-      <div class="project-card" data-modal="lego-super-mario">
-        <div class="project-image"><img src="https://i.ytimg.com/vi/lw9tVBilsrQ/maxresdefault.jpg" alt="LEGO Super Mario"></div>
-        <div class="project-content">
-          <h3 class="project-title">LEGO Super Mario</h3>
-          <p class="project-meta">Digital-physical action adventure | Mar 2019 - Dec 2023 | LEGO Group</p>
-          <p class="project-role">Product owner on digital-physical integration. Managed backlog across 6 years and 12 SKU waves. Participated in kid playtests and contributed to evergreen content planning.</p>
+    <section id="approach" class="section">
+      <div class="container">
+        <span class="tag">Approach</span>
+        <h2 class="section-title">Rapid Prototyping With Production Constraints</h2>
+        <div class="approach-box">
+          I work in short iteration loops with players and stakeholders, then convert insights into concrete design and technical changes. The recurring pattern across projects has been to simplify systems for designers while keeping implementation robust enough for long-term growth.
         </div>
       </div>
+    </section>
 
-      <div class="project-card" data-modal="for-honor">
-        <div class="project-image"><img src="images/forHonor_ArcadeMode2.jpeg" alt="For Honor Arcade Mode"></div>
-        <div class="project-content">
-          <h3 class="project-title">For Honor - Arcade Mode</h3>
-          <p class="project-meta">Multiplayer action fighting | Jan 2016 - Nov 2018 | Studio Gobo / Ubisoft</p>
-          <p class="project-role">One of three designers. Built Arcade Mode systems, levels and progression for 4v4 play.</p>
+    <section id="projects" class="section">
+      <div class="container">
+        <span class="tag">Selected Work</span>
+        <h2 class="section-title">Project Highlights</h2>
+        <p class="section-lead">A focused overview of major projects. Select a card to view a concise technical and design summary.</p>
+        <div class="projects-grid">
+          <article class="project-card" data-modal="lego-smart-play" tabindex="0" role="button" aria-label="Open details for LEGO Smart Play Prototypes">
+            <div class="project-image"><img src="https://images.brickset.com/news/128820_SMARTBrick_Hero_16x9.jpg" alt="LEGO Smart Play"></div>
+            <div class="project-content">
+              <h3 class="project-title">LEGO SMART Play Prototypes</h3>
+              <p class="project-meta">LEGO Group | 2024-Present</p>
+              <p class="project-role">Prototyping digital-physical experiences with sensors, Bluetooth, and feedback systems.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-modal="lego-super-mario" tabindex="0" role="button" aria-label="Open details for LEGO Super Mario">
+            <div class="project-image"><img src="https://i.ytimg.com/vi/lw9tVBilsrQ/maxresdefault.jpg" alt="LEGO Super Mario"></div>
+            <div class="project-content">
+              <h3 class="project-title">LEGO Super Mario</h3>
+              <p class="project-meta">LEGO Group | 2019-2023</p>
+              <p class="project-role">Senior Product Owner and Engineering Manager for digital-physical integration and optimization.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-modal="for-honor" tabindex="0" role="button" aria-label="Open details for For Honor Arcade Mode">
+            <div class="project-image"><img src="images/forHonor_ArcadeMode2.jpeg" alt="For Honor Arcade Mode"></div>
+            <div class="project-content">
+              <h3 class="project-title">For Honor - Arcade Mode</h3>
+              <p class="project-meta">Studio Gobo / Ubisoft | 2016-2018</p>
+              <p class="project-role">Designed arcade logic, progression loops, and co-op-friendly mission systems.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-modal="inside" tabindex="0" role="button" aria-label="Open details for INSIDE">
+            <div class="project-image"><img src="images/INSIDE_banner2.jpg" alt="INSIDE"></div>
+            <div class="project-content">
+              <h3 class="project-title">INSIDE</h3>
+              <p class="project-meta">Playdead | 2011-2015</p>
+              <p class="project-role">Level and puzzle design using Unity 5.0 and PlayMaker with custom C# extensions.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-modal="limbo" tabindex="0" role="button" aria-label="Open details for LIMBO">
+            <div class="project-image"><img src="images/LIMBO_banner2.jpg" alt="LIMBO"></div>
+            <div class="project-content">
+              <h3 class="project-title">LIMBO</h3>
+              <p class="project-meta">Playdead | 2008-2010</p>
+              <p class="project-role">Designed puzzles and scripted interactions in a proprietary mono-chrome engine.</p>
+            </div>
+          </article>
+
+          <article class="project-card" data-modal="hca-ugly" tabindex="0" role="button" aria-label="Open details for The Ugly Prince Duckling">
+            <div class="project-image"><img src="images/HCA_1.jpeg" alt="The Ugly Prince Duckling"></div>
+            <div class="project-content">
+              <h3 class="project-title">The Ugly Prince Duckling</h3>
+              <p class="project-meta">Guppyworks | 2006</p>
+              <p class="project-role">Point-and-click puzzle scripting and QA documentation in a proprietary 2D engine pipeline.</p>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="project-card" data-modal="inside">
-        <div class="project-image"><img src="images/INSIDE_banner2.jpg" alt="Inside"></div>
-        <div class="project-content">
-          <h3 class="project-title">Inside</h3>
-          <p class="project-meta">2D puzzle adventure | Jan 2011 - Jul 2015 | Playdead</p>
-          <p class="project-role">Level and puzzle design, scripting and optimisation.</p>
+    <section id="engine-experience" class="section engine-section">
+      <div class="container">
+        <span class="tag">New Section</span>
+        <h2 class="section-title">Engine and Technical Experience</h2>
+        <p class="section-lead">Organized by company with expandable technical breakdowns. Each panel documents engines/platforms used, roles, and concrete technical challenges solved.</p>
+
+        <div class="company-accordion">
+          <details class="company-panel" open>
+            <summary>
+              <div class="company-header">
+                <h3>Playdead</h3>
+                <p>Game and Level Designer, Scripter | Proprietary Engine and Unity 5.0</p>
+              </div>
+              <span class="toggle-indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="company-body">
+              <div class="company-meta">
+                <div class="chip-block">
+                  <h4>Roles</h4>
+                  <p>Game and Level Designer, Scripter</p>
+                </div>
+                <div class="chip-block">
+                  <h4>Engines</h4>
+                  <p>Proprietary (LIMBO), Unity 5.0 (INSIDE)</p>
+                </div>
+              </div>
+              <div class="engine-breakdown">
+                <article class="engine-card">
+                  <h4>Proprietary Engine (LIMBO)</h4>
+                  <p>2D mono-chrome engine for puzzle-centric gameplay and environmental storytelling.</p>
+                  <ul>
+                    <li>Designed puzzles and levels around physics-based interactions and pacing.</li>
+                    <li>Used a custom C-inspired scripting language for game logic and expanded visual scripting feature sets.</li>
+                    <li>Leveraged in-editor visual scripting and events for rapid mechanic iteration.</li>
+                  </ul>
+                  <p class="callout">Lesson learned: bad save-game decisions early in production led to stronger focus on scalable data structures and progression systems in later work.</p>
+                </article>
+                <article class="engine-card">
+                  <h4>Unity 5.0 (INSIDE)</h4>
+                  <p>2.5D gameplay production with PlayMaker and custom C# interfaces.</p>
+                  <ul>
+                    <li>Created complex level flow and interaction systems in PlayMaker with direct support from Hutong Games.</li>
+                    <li>Extended PlayMaker through custom C# scripts for continuous audio behavior and optimized object spawning and placement.</li>
+                    <li>Supported custom editor tooling for camera view, culling, LOD optimization, and visual scripting save-point workflows.</li>
+                    <li>Maintained a set of 34 custom engine shortcuts used across level design workflows.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </details>
+
+          <details class="company-panel">
+            <summary>
+              <div class="company-header">
+                <h3>Studio Gobo</h3>
+                <p>Game Designer, Mission Designer | Octane, AnvilNext, Unity, AC Unity + Rainbow Six Siege Engine</p>
+              </div>
+              <span class="toggle-indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="company-body">
+              <div class="company-meta">
+                <div class="chip-block">
+                  <h4>Roles</h4>
+                  <p>Game Designer, Mission Designer</p>
+                </div>
+                <div class="chip-block">
+                  <h4>Engines</h4>
+                  <p>Octane, AnvilNext, Unity, AC Unity + Rainbow Six Siege Engine</p>
+                </div>
+              </div>
+              <div class="engine-breakdown">
+                <article class="engine-card">
+                  <h4>Octane Engine (Disney Infinity)</h4>
+                  <ul>
+                    <li>Scripted teleportation, camera cuts, character placement, and dialogue systems in modular event-driven setups.</li>
+                    <li>Designed puzzle spaces and mission logic informed by lessons from Playdead around pace breaks and progression depth.</li>
+                    <li>Rapidly iterated mini-games and narrative beats through visual scripting.</li>
+                  </ul>
+                </article>
+                <article class="engine-card">
+                  <h4>AnvilNext (For Honor, Ubisoft)</h4>
+                  <ul>
+                    <li>Prototyped AI behavior, scoring, and reward structures for solo and co-op Arcade Mode.</li>
+                    <li>Worked inside deterministic, non-authoritative architecture to preserve consistent multiplayer outcomes.</li>
+                    <li>Partnered with engineers to expose gameplay hooks such as out-of-ammo and enter-zone events for dynamic voice systems.</li>
+                  </ul>
+                </article>
+                <article class="engine-card">
+                  <h4>Unity (Forza Street and Nintendo Game Jam)</h4>
+                  <ul>
+                    <li>Designed racing mechanics for accessibility and flow in Forza Street contexts.</li>
+                    <li>Rapidly prototyped complete gameplay loops for Nintendo Switch game jam production.</li>
+                  </ul>
+                </article>
+                <article class="engine-card">
+                  <h4>AC Unity + Rainbow Six Siege Engine (HyperScape)</h4>
+                  <ul>
+                    <li>Designed context-aware commentary reacting to kills, environment state, and player actions.</li>
+                    <li>Integrated data from camera, character, and level interactions into a coherent voice response layer.</li>
+                    <li>Reused existing gameplay hooks to reduce hardcoded audio event dependencies.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </details>
+
+          <details class="company-panel">
+            <summary>
+              <div class="company-header">
+                <h3>LEGO Group</h3>
+                <p>Senior Product Owner, Engineering Manager | Custom Unity Tools and Proprietary Hardware</p>
+              </div>
+              <span class="toggle-indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="company-body">
+              <div class="company-meta">
+                <div class="chip-block">
+                  <h4>Roles</h4>
+                  <p>Senior Product Owner, Engineering Manager (Play Experimentation)</p>
+                </div>
+                <div class="chip-block">
+                  <h4>Platforms</h4>
+                  <p>Custom Unity tooling (LEGO Super Mario), proprietary SMART Play hardware</p>
+                </div>
+              </div>
+              <div class="engine-breakdown">
+                <article class="engine-card">
+                  <h4>LEGO Super Mario (Custom Unity + Embedded Systems)</h4>
+                  <ul>
+                    <li>Worked under hard constraints: 7MB memory, 0.1 second update intervals, Bluetooth multiplayer with two figures and optional app integration.</li>
+                    <li>Implemented event-driven behavior through timer-based triggers in a system without direct event support.</li>
+                    <li>Built modular gameplay logic with EventToEvent and ActionLists patterns.</li>
+                    <li>Led animation and asset pipeline improvements for sound, graphics, and logic workflows.</li>
+                    <li>Ran optimization programs to reclaim memory for future product waves.</li>
+                  </ul>
+                </article>
+                <article class="engine-card">
+                  <h4>LEGO SMART Play (Prototyping and Leadership)</h4>
+                  <ul>
+                    <li>Led a small engineering team with two direct reports focused on rapid prototype iteration and validation.</li>
+                    <li>Integrated sensors, Bluetooth, gyroscopes, and real-time feedback for responsive physical interactions.</li>
+                    <li>Aligned creative and technical tracks with the Creative Play Lab for SMART Tags and gesture systems.</li>
+                    <li>Ensured prototypes stayed user-friendly and met LEGO safety and quality standards.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </details>
+
+          <details class="company-panel">
+            <summary>
+              <div class="company-header">
+                <h3>Guppyworks</h3>
+                <p>Scripter | Proprietary 2D Engine (The Ugly Prince Duckling)</p>
+              </div>
+              <span class="toggle-indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="company-body">
+              <div class="company-meta">
+                <div class="chip-block">
+                  <h4>Role</h4>
+                  <p>Scripter</p>
+                </div>
+                <div class="chip-block">
+                  <h4>Engine</h4>
+                  <p>Proprietary 2D engine (The Ugly Prince Duckling)</p>
+                </div>
+              </div>
+              <div class="engine-breakdown">
+                <article class="engine-card">
+                  <h4>Scripting and Logic</h4>
+                  <ul>
+                    <li>Designed point-and-click puzzle logic inspired by fairytale storytelling structures.</li>
+                    <li>Used color-coded Excel sheets to drive LUA scripting permutations with and without high-resolution Bink video backgrounds.</li>
+                  </ul>
+                </article>
+                <article class="engine-card">
+                  <h4>Collaboration, QA, and Documentation</h4>
+                  <ul>
+                    <li>Partnered with programmers to test and deploy scripting tooling.</li>
+                    <li>Defined naming conventions and script structures to improve implementation consistency.</li>
+                    <li>Maintained game design documentation to support future updates and maintainability.</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
+    </section>
 
-      <div class="project-card" data-modal="limbo">
-        <div class="project-image"><img src="images/LIMBO_banner2.jpg" alt="Limbo"></div>
-        <div class="project-content">
-          <h3 class="project-title">Limbo</h3>
-          <p class="project-meta">2D puzzle platformer | Jan 2008 - Dec 2010 | Playdead</p>
-          <p class="project-role">Puzzle design, QA and optimisation.</p>
+    <section id="contact" class="section">
+      <div class="container">
+        <span class="tag">Contact</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-grid">
+          <article class="contact-item">
+            <h3>Email</h3>
+            <p><a href="mailto:buchardt@gmail.com">buchardt@gmail.com</a></p>
+          </article>
+          <article class="contact-item">
+            <h3>Phone</h3>
+            <p><a href="tel:+4552159569">+45 52 15 95 69</a></p>
+          </article>
+          <article class="contact-item">
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/peterbuchardt" target="_blank" rel="noopener noreferrer">linkedin.com/in/peterbuchardt</a></p>
+          </article>
+          <article class="contact-item">
+            <h3>Location</h3>
+            <p>Vejle, Denmark</p>
+          </article>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="project-card" data-modal="disney-infinity">
-        <div class="project-image"><img src="images/DisneyInfinity_banner.jpg" alt="Disney Infinity"></div>
-        <div class="project-content">
-          <h3 class="project-title">Disney Infinity</h3>
-          <p class="project-meta">3D action puzzle platformer | Jul 2015 - Mar 2016 | Studio Gobo</p>
-          <p class="project-role">Mission design and visual scripting.</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="miami-street">
-        <div class="project-image"><img src="images/Miami_Street.jpg" alt="Miami Street"></div>
-        <div class="project-content">
-          <h3 class="project-title">Miami Street</h3>
-          <p class="project-meta">F2P mobile racer | Jul 2016 - Dec 2016 | Electric Square</p>
-          <p class="project-role">Mission design, gameplay systems and story maintenance during soft launch.</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="hca-2">
-        <div class="project-image"><img src="images/HCA2_1.jpg" alt="HCA 2"></div>
-        <div class="project-content">
-          <h3 class="project-title">HCA 2 - The Snow Queen</h3>
-          <p class="project-meta">3D adventure | Jun 2007 - Nov 2007 | Guppyworks</p>
-          <p class="project-role">Level and quest scripting (LUA / Squirrel), economy design and mini-game balancing during full-time internship while finishing Master studies.</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="hca-ugly">
-        <div class="project-image"><img src="images/HCA_1.jpeg" alt="HCA - Ugly Prince"></div>
-        <div class="project-content">
-          <h3 class="project-title">HCA - The Ugly Prince Duckling</h3>
-          <p class="project-meta">3D adventure | Jan 2006 - Jul 2006 | Guppyworks</p>
-          <p class="project-role">Level design, scripting (LUA) and QA. Earlier internship at Guppyworks also included game design, scripting and testing.</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="agent-hugo">
-        <div class="project-image"><img src="images/hugo_lemoon.png" alt="Agent Hugo"></div>
-        <div class="project-content">
-          <h3 class="project-title">Agent Hugo - Lemoon Twist</h3>
-          <p class="project-meta">3D platform action | Jul 2007 - Aug 2007 | NDS / ITE</p>
-          <p class="project-role">QA: gameplay testing and bug reporting for published title.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Educational -->
-    <h3 class="category-header">Educational</h3>
-    <div class="projects-grid">
-      <div class="project-card" data-modal="the-house">
-        <div class="project-image"><img src="images/the_house-1.jpg" alt="The House"></div>
-        <div class="project-content">
-          <h3 class="project-title">The House</h3>
-          <p class="project-meta">3D god game | Mar 2007 | DADIU</p>
-          <p class="project-role">Designed mechanics, AI, skill systems and level construction (Half-Life 2 mod).</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="ballocks">
-        <div class="project-image"><img src="images/Ballocks-1.jpg" alt="Ballocks"></div>
-        <div class="project-content">
-          <h3 class="project-title">Ballocks</h3>
-          <p class="project-meta">3D action shooter | May 2006 | DADIU</p>
-          <p class="project-role">Concept, mechanics, progression and level design (Half-Life 2 mod).</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recreational -->
-    <h3 class="category-header">Recreational</h3>
-    <div class="projects-grid">
-      <div class="project-card" data-modal="brickwalker">
-        <div class="project-image"><img src="images/BW-1.jpg" alt="Brickwalker"></div>
-        <div class="project-content">
-          <h3 class="project-title">Brickwalker</h3>
-          <p class="project-meta">3D multiplayer shooter | Aug 2006 - Jan 2007 | 9K Games</p>
-          <p class="project-role">Level design, implementation, particles, triggers and balancing (Torque Engine).</p>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="game-jams">
-        <div class="project-image"><img src="images/trggrtme.png" alt="Game Jam Games"></div>
-        <div class="project-content">
-          <h3 class="project-title">Game Jam Prototypes</h3>
-          <p class="project-meta">Various | Recent | Unicorn7</p>
-          <p class="project-role">TRGGR TME (puzzle), The Shot (sniping), RFLXZ (arcade), SKNT (racing).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <h3>Email</h3>
-        <p><a href="mailto:buchardt@gmail.com">buchardt@gmail.com</a></p>
-      </div>
-      <div class="contact-item">
-        <h3>Phone</h3>
-        <p><a href="tel:+45 52 15 95 69">+45 52 15 95 69</a></p>
-      </div>
-      <div class="contact-item">
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/peterbuchardt" target="_blank">linkedin.com/in/peterbuchardt</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <button class="modal-close">&times;</button>
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button class="modal-close" aria-label="Close dialog">x</button>
       <div id="modal-body"></div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 Peter Buchardt. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2026 Peter Buchardt. Built as a static, responsive portfolio for GitHub Pages.</p>
+    </div>
   </footer>
 
   <script>
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
+    const modalContent = document.querySelector('.modal-content');
     const closeBtn = document.querySelector('.modal-close');
+    let lastFocusedElement = null;
 
     const projectData = {
       'lego-smart-play': `
-        <h3>LEGO Smart Play Prototypes</h3>
-        <p><strong>Type:</strong> Digital-physical play system</p>
+        <h3 id="modal-title">LEGO SMART Play Prototypes</h3>
+        <p><strong>Type:</strong> Digital-physical play systems</p>
         <p><strong>Period:</strong> January 2024 - Present</p>
-        <p><strong>Developer:</strong> LEGO Group</p>
-        <p><strong>Role:</strong> Work on early prototypes that combine physical LEGO bricks with sensors and apps. Contributed to guidelines for Smart Brick colour-sensor usage in collaboration with LEGO Design and SP3.</p>
+        <p><strong>Role:</strong> Led technical experimentation with sensors, Bluetooth, and responsive interaction models.</p>
         <div class="images">
-          <img src="https://images.brickset.com/news/128820_SMARTBrick.jpg" alt="Smart Brick">
+          <img src="https://images.brickset.com/news/128820_SMARTBrick.jpg" alt="LEGO SMART Brick prototype">
         </div>
       `,
       'lego-super-mario': `
-        <h3>LEGO Super Mario</h3>
-        <p><strong>Type:</strong> Digital-physical action adventure</p>
+        <h3 id="modal-title">LEGO Super Mario</h3>
+        <p><strong>Type:</strong> Digital-physical action adventure platform</p>
         <p><strong>Period:</strong> March 2019 - December 2023</p>
-        <p><strong>Status:</strong> 12 SKU waves over 6 years</p>
-        <p><strong>Developer:</strong> LEGO Group</p>
-        <p><strong>Role:</strong> Product owner on digital-physical integration. Prototyped on the Mario figure using YAML. Participated in kid playtests in LA and Billund. Contributed to evergreen strategy and memory roadmap.</p>
-        <p><a href="https://www.youtube.com/watch?v=lw9tVBilsrQ" target="_blank">Watch trailer</a></p>
+        <p><strong>Role:</strong> Senior Product Owner and Engineering Manager handling optimization, pipelines, and gameplay architecture strategy.</p>
+        <p><a href="https://www.youtube.com/watch?v=lw9tVBilsrQ" target="_blank" rel="noopener noreferrer">Watch trailer</a></p>
       `,
       'for-honor': `
-        <h3>For Honor - Arcade Mode</h3>
+        <h3 id="modal-title">For Honor - Arcade Mode</h3>
         <p><strong>Type:</strong> Multiplayer action fighting</p>
         <p><strong>Period:</strong> January 2016 - November 2018</p>
-        <p><strong>Status:</strong> Live</p>
-        <p><strong>Developer:</strong> Studio Gobo / Ubisoft</p>
-        <p><strong>Role:</strong> Designed systems, levels and progression for the 4v4 Arcade Mode.</p>
+        <p><strong>Role:</strong> Designed mission systems, progression loops, and technical hooks for dynamic responses.</p>
         <div class="images">
-          <img src="images/forHonor_ArcadeMode2.jpeg" alt="Arcade Mode">
+          <img src="images/forHonor_ArcadeMode2.jpeg" alt="For Honor Arcade Mode screenshot">
         </div>
       `,
       'inside': `
-        <h3>Inside</h3>
-        <p><strong>Type:</strong> 2D puzzle adventure</p>
+        <h3 id="modal-title">INSIDE</h3>
+        <p><strong>Type:</strong> 2.5D puzzle adventure</p>
         <p><strong>Period:</strong> January 2011 - July 2015</p>
-        <p><strong>Developer:</strong> Playdead</p>
-        <p><strong>Role:</strong> Level and puzzle design, scripting and optimisation.</p>
+        <p><strong>Role:</strong> Level and puzzle design with PlayMaker workflows and custom C# extensions.</p>
         <div class="images">
-          <img src="images/INSIDE_banner2.jpg" alt="Inside">
+          <img src="images/INSIDE_banner2.jpg" alt="INSIDE artwork">
         </div>
       `,
       'limbo': `
-        <h3>Limbo</h3>
+        <h3 id="modal-title">LIMBO</h3>
         <p><strong>Type:</strong> 2D puzzle platformer</p>
         <p><strong>Period:</strong> January 2008 - December 2010</p>
-        <p><strong>Developer:</strong> Playdead</p>
-        <p><strong>Role:</strong> Puzzle design, QA and optimisation.</p>
+        <p><strong>Role:</strong> Puzzle design and scripting in proprietary engine tooling.</p>
         <div class="images">
-          <img src="images/LIMBO_banner2.jpg" alt="Limbo">
-        </div>
-      `,
-      'disney-infinity': `
-        <h3>Disney Infinity</h3>
-        <p><strong>Type:</strong> 3D action puzzle platformer</p>
-        <p><strong>Period:</strong> July 2015 - March 2016</p>
-        <p><strong>Developer:</strong> Studio Gobo</p>
-        <p><strong>Role:</strong> Mission design and visual scripting.</p>
-        <div class="images">
-          <img src="images/DisneyInfinity_banner.jpg" alt="Disney Infinity">
-        </div>
-      `,
-      'miami-street': `
-        <h3>Miami Street</h3>
-        <p><strong>Type:</strong> F2P mobile racer</p>
-        <p><strong>Period:</strong> July 2016 - December 2016</p>
-        <p><strong>Developer:</strong> Electric Square</p>
-        <p><strong>Role:</strong> Mission design, gameplay systems and story maintenance during soft launch.</p>
-        <div class="images">
-          <img src="images/Miami_Street.jpg" alt="Miami Street">
-        </div>
-      `,
-      'hca-2': `
-        <h3>HCA 2 - The Snow Queen</h3>
-        <p><strong>Type:</strong> 3D adventure</p>
-        <p><strong>Period:</strong> June 2007 - November 2007</p>
-        <p><strong>Developer:</strong> Guppyworks</p>
-        <p><strong>Role:</strong> Level and quest scripting using LUA and Squirrel (plus in-house language + XML). Designed economy systems and balanced mini-games. Worked full-time as intern during Master studies.</p>
-        <p><strong>Quote:</strong> "During Peters Master studies he was working full time as an intern... I really hope we'll be able to work together in the future." – Jacob Buck, Director of Development</p>
-        <div class="images">
-          <img src="images/HCA2_1.jpg" alt="HCA2 1">
+          <img src="images/LIMBO_banner2.jpg" alt="LIMBO artwork">
         </div>
       `,
       'hca-ugly': `
-        <h3>HCA - The Ugly Prince Duckling</h3>
-        <p><strong>Type:</strong> 3D adventure</p>
+        <h3 id="modal-title">The Ugly Prince Duckling</h3>
+        <p><strong>Type:</strong> Story-driven point-and-click adventure</p>
         <p><strong>Period:</strong> January 2006 - July 2006</p>
-        <p><strong>Developer:</strong> Guppyworks</p>
-        <p><strong>Role:</strong> Level design and scripting (LUA). Earlier internship at Guppyworks also included game design, scripting and testing.</p>
-        <p><strong>Quote:</strong> "Peter is the kind of person that never runs out of great ideas... All the levels he worked on became the high mark." – Simon Larsen, Game Scripter</p>
+        <p><strong>Role:</strong> Scripting, puzzle logic, and maintainability-oriented design documentation.</p>
         <div class="images">
-          <img src="images/HCA_1.jpeg" alt="HCA 1">
-        </div>
-      `,
-      'agent-hugo': `
-        <h3>Agent Hugo - Lemoon Twist</h3>
-        <p><strong>Type:</strong> 3D platform action</p>
-        <p><strong>Period:</strong> July - August 2007</p>
-        <p><strong>Developer:</strong> NDS / ITE</p>
-        <p><strong>Role:</strong> QA: gameplay testing and bug reporting using Fly Spray for a published title.</p>
-        <div class="images">
-          <img src="images/hugo_lemoon.png" alt="Hugo">
-        </div>
-      `,
-      'the-house': `
-        <h3>The House</h3>
-        <p><strong>Type:</strong> 3D god game</p>
-        <p><strong>Period:</strong> March 2007</p>
-        <p><strong>Developer:</strong> DADIU (student project)</p>
-        <p><strong>Role:</strong> Designed mechanics, AI, skill systems and built levels (Half-Life 2 mod).</p>
-        <div class="images">
-          <img src="images/the_house-1.jpg" alt="The House">
-        </div>
-      `,
-      'ballocks': `
-        <h3>Ballocks</h3>
-        <p><strong>Type:</strong> 3D action shooter</p>
-        <p><strong>Period:</strong> May 2006</p>
-        <p><strong>Developer:</strong> DADIU (student project)</p>
-        <p><strong>Role:</strong> Concept, mechanics, progression and level design (Half-Life 2 mod).</p>
-        <div class="images">
-          <img src="images/Ballocks-1.jpg" alt="Ballocks">
-        </div>
-      `,
-      'brickwalker': `
-        <h3>Brickwalker</h3>
-        <p><strong>Type:</strong> 3D multiplayer shooter</p>
-        <p><strong>Period:</strong> August 2006 - January 2007</p>
-        <p><strong>Developer:</strong> 9K Games</p>
-        <p><strong>Role:</strong> Level design, implementation, particles, triggers and balancing (Torque Engine).</p>
-        <div class="images">
-          <img src="images/BW-1.jpg" alt="Brickwalker">
-        </div>
-      `,
-      'game-jams': `
-        <h3>Game Jam Prototypes</h3>
-        <p>Prototypes created during Nordic Game Jams:</p>
-        <ul>
-          <li><a href="https://games.softpedia.com/get/Freeware-Games/TRGGR-TME.shtml" target="_blank">TRGGR TME – Puzzle</a></li>
-          <li>The Shot – 2D Sniping</li>
-          <li>RFLXZ – Arcade</li>
-          <li>SKNT – One Button Racing</li>
-        </ul>
-        <div class="images">
-          <img src="images/trggrtme.png" alt="TRGGR TME">
+          <img src="images/HCA_1.jpeg" alt="The Ugly Prince Duckling screenshot">
         </div>
       `
     };
 
-    document.querySelectorAll('.project-card').forEach(card => {
+    function openModal(modalId, triggerElement) {
+      if (!projectData[modalId]) {
+        return;
+      }
+
+      lastFocusedElement = triggerElement;
+      modalBody.innerHTML = projectData[modalId];
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      modalContent.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      modalBody.innerHTML = '';
+      document.body.style.overflow = '';
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    document.querySelectorAll('.project-card').forEach((card) => {
       card.addEventListener('click', () => {
-        const modalId = card.dataset.modal;
-        if (projectData[modalId]) {
-          modalBody.innerHTML = projectData[modalId];
-          modal.classList.add('active');
+        openModal(card.dataset.modal, card);
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(card.dataset.modal, card);
         }
       });
     });
 
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('active');
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
     });
   </script>
 </body>
